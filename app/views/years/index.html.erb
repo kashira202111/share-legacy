@@ -1,0 +1,22 @@
+<h1>千葉大学電気電子工学科過去問集</h1>
+<p id="notice"><%= notice %></p>
+<h2>授業年度</h2>
+<div class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>授業実施年度</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @years.each do |year| %>
+        <tr>
+          <li><%= link_to year.year, {controller: :years, action: :showSubjectList, id: year.id} %></li>
+        </tr>
+      <% end %>
+    </tbody>
+
+  </table>
+
+</div>
+<%= link_to 'New Year', years_new_path %>
