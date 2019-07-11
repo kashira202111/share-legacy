@@ -8,5 +8,4 @@ Rails.application.routes.draw do
 #subject routes
   get 'subjects/new', to: 'subjects#new'
   post 'subjects', to: 'subjects#create'
-
 end
