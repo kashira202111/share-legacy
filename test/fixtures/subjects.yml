@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  indeger: MyString
+  year_id: 1
+  subject_name: MyString
+  teacher_name: MyString
+
+two:
+  indeger: MyString
+  year_id: 1
+  subject_name: MyString
+  teacher_name: MyString

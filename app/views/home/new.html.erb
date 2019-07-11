@@ -1,0 +1,9 @@
+<%= form_for @year do |y| %>
+<div class="field">
+  <%= y.label :year %>
+  <%= y.text_field :year %>
+</div>
+<div class="actions">
+  <%= y.submit %>
+</div>
+<% end %>
