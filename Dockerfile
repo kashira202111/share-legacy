@@ -6,14 +6,11 @@ RUN apt-get update -qq && apt-get install -y \
     nodejs \
  && rm -rf /var/lib/apt/lists/*
 
+RUN touch /tmp/mysql.sock
+RUN chmod 777 /tmp/mysql.sock
+RUN ls -la /tmp/
 RUN gem install bundler
-
-WORKDIR /tmp
-ADD Gemfile Gemfile
-ADD Gemfile.lock Gemfile.lock
-RUN bundle install
-
 ENV APP_HOME /myapp
-RUN mkdir -p $APP_HOME
-WORKDIR $APP_HOME
+WORKDIR ${APP_HOME}
 ADD . $APP_HOME
+RUN bundle install

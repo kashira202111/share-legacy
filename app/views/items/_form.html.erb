@@ -1,0 +1,38 @@
+<%= form_for @image, :url => {:action => :create}, multipart: true do |form| %>
+  <div class "field image">
+    <div id='img_field' onClick="$('#file').click()">
+      <div class="fas fa-image"></div><div class="fas fa-file-upload add"></div>
+    </div>
+    <%= form.file_field :image, class: "image", id: "file" %>
+    <%= form.hidden_field :url, :value => '' %>
+    <%= form.hidden_field :subject_id, :value => @subject.id %>
+  </div>
+  <div class="actions">
+  <%= form.submit %>
+  </div>
+<% end %>
+
+<script>
+$(function(){
+  $fileField = $('#file')
+
+  $($fileField).on('change', $fileField, function(e) {
+    file = e.target.files[0]
+    reader = new FileReader(),
+    $preview = $("#img_field");
+
+    reader.onload = (function(file) {
+      return function(e) {
+        $preview.empty();
+        $preview.append($('<img>').attr({
+          src: e.target.result,
+          width: "100%",
+          class: "preview",
+          title: file.name
+        }));
+      };
+    })(file);
+    reader.readAsDataURL(file);
+  });
+});
+</script>

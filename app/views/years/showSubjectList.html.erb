@@ -4,9 +4,15 @@
 
 <ul>
 <% @subjects.each do |subject| %>
-    <li><%= subject.subject_name %> : <%= subject.teacher_name %></li>
+    <li>
+      <%= link_to ({controller: :subjects, action: :showImages, id: subject.id}) do %>
+          <%= subject.subject_name %> : <%= subject.teacher_name %>
+      <% end %>
+    </li>
+    
 <% end %>
 </ul>
 
 <%= link_to 'add', { controller: :subjects, action: :new, id: @year.id } %>
 <%= link_to 'Back', { controller: :years, action: :index } %>
+

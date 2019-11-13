@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @subject.subject_name %>年度授業一覧</h1>
+
+<ul style="list-style: none">
+<% @images.each do |image| %>
+    <li><img src=<%= image.url %> width=240 height=240></li>
+<% end %>
+</ul>
+
+<%= link_to 'add', { controller: :items, action: :new, id: @subject.id } %>
+<%= link_to 'Back', { controller: :years, action: :showSubjectList, id: @year.id } %>

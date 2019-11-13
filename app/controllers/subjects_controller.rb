@@ -1,9 +1,16 @@
 class SubjectsController < ApplicationController
 
+    def showImages
+      @subject = Subject.find(params[:id])
+      @images = @subject.image_urls
+      @year = @subject.year
+    end
+
     def new
         @year = Year.find(params[:id])
         @subject = Subject.new
     end
+
     def create
         @subject = Subject.new(subject_params)
 
